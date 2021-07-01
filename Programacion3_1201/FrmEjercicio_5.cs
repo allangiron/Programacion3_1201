@@ -19,17 +19,15 @@ namespace Programacion3_1201
 
         private void btn_ejecutar_Click(object sender, EventArgs e)
         {
-            int[,] matriz = new int[2, 2];
+            int[,] matriz = new int[Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)];
+            Random matrizAleatoria = new Random();
 
-            matriz[0, 0] = Convert.ToInt32(textBox1.Text);
-            matriz[0, 1] = Convert.ToInt32(textBox2.Text);
-            matriz[1, 0] = Convert.ToInt32(textBox3.Text);
-            matriz[1, 1] = Convert.ToInt32(textBox4.Text);
 
             for (int filas = 0 ; filas < matriz.GetLength(0); filas++)
             {
                 for(int colum = 0; colum < matriz.GetLength(1); colum++)
                 {
+                    matriz[filas, colum] = matrizAleatoria.Next(0,100);
                     MessageBox.Show("La posición es: " + filas + " , " + colum + " = " + matriz[filas, colum].ToString());
                 }
             }
